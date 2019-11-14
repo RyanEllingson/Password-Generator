@@ -5,9 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Password Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
     <h1>stuff</h1>
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Choose Password Length
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <button class="dropdown-item" type="button" onclick="setLength(8)">8</button>
+            <button class="dropdown-item" type="button" onclick="setLength(9)">9</button>
+            <button class="dropdown-item" type="button" onclick="setLength(10)">10</button>
+            <button class="dropdown-item" type="button" onclick="setLength(11)">11</button>
+            <button class="dropdown-item" type="button" onclick="setLength(12)">12</button>
+            <button class="dropdown-item" type="button" onclick="setLength(13)">13</button>
+            <button class="dropdown-item" type="button" onclick="setLength(14)">14</button>
+            <button class="dropdown-item" type="button" onclick="setLength(15)">15</button>
+            <button class="dropdown-item" type="button" onclick="setLength(16)">16</button>
+        </div>
+        <form>
+            <div class="form-group row">
+                <label for="chosenLength" class="col-sm-2 col-form-label">Length</label>
+                <div class="col-sm-10">
+                    <input type="text" readonly class="form-control-plaintext" id="chosenLength" value="8">
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+    <button type="button" class="btn btn-primary" onclick="genPass()">Primary</button>
 
     <script>
         function startPage() {
@@ -16,17 +45,34 @@
             const upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
             const numbers = ["0","1","2","3","4","5","6","7","8","9"];
             const specialChars = ["!","@","#","$","%","^","&","*","(",")"];
+            //  Initialize password length variable passLength
+            let passLength = 8;
+            //  When a password length is selected, write the corresponding number to passLength and display the selected number on the screen
+            function setLength (length) {
+                passLength = length;
+                let chosenLengthEl = document.getElementById("chosenLength");
+                chosenLengthEl.setAttribute("value",length);
+            }
             //  When "Generate Password" button is clicked, start the function
+            function genPass() {
             //  Initialize an empty user array
+                let userArray = [];
             //  Look at what options the user has selected for their password, and add the contents of the corresponding source arrays to the user array.  This array contains the set of characters which will be randomly chosen to build the password
             //  Initialize a password array whose length is equal to the number of characters requested by the user for their password
             //  Loop through each element of the password array and assign to it an element randomly chosen from the user array
             //  Display the generated password on the screen
             //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
 
-
+            }
+            window.setLength = setLength;
+            window.genPass = genPass;
         }
-     </script>
+        startPage();
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     
 
 </body>
 </html>
