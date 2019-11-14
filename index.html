@@ -25,42 +25,53 @@
             <button class="dropdown-item" type="button" onclick="setLength(15)">15</button>
             <button class="dropdown-item" type="button" onclick="setLength(16)">16</button>
         </div>
-        <form>
-            <div class="form-group row">
-                <label for="chosenLength" class="col-sm-2 col-form-label">Length</label>
-                <div class="col-sm-10">
-                    <input type="text" readonly class="form-control-plaintext" id="chosenLength" value="8">
-                </div>
-            </div>
-        </form>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="lowercaseCheck">
-            <label class="form-check-label" for="lowercaseCheck">
-                Lowercase Letters
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="uppercaseCheck">
-            <label class="form-check-label" for="uppercaseCheck">
-                Uppercase Letters
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="numberCheck">
-            <label class="form-check-label" for="numberCheck">
-                Numbers
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="specialCheck">
-            <label class="form-check-label" for="specialCheck">
-                Special Characters
-            </label>
-        </div>
-
     </div>
 
+    <form>
+        <div class="form-group row">
+            <label for="chosenLength" class="col-sm-2 col-form-label">Length</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="chosenLength" value="8">
+            </div>
+        </div>
+    </form>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="lowercaseCheck">
+        <label class="form-check-label" for="lowercaseCheck">
+            Lowercase Letters
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="uppercaseCheck">
+        <label class="form-check-label" for="uppercaseCheck">
+            Uppercase Letters
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="numberCheck">
+        <label class="form-check-label" for="numberCheck">
+            Numbers
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="specialCheck">
+        <label class="form-check-label" for="specialCheck">
+            Special Characters
+        </label>
+    </div>
+
+    
+
     <button type="button" class="btn btn-primary" onclick="genPass()">Generate Password</button>
+
+    <form>
+        <div class="form-group row">
+            <label for="generatedPassword" class="col-sm-2 col-form-label">Password</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="generatedPassword" value="">
+            </div>
+        </div>
+    </form>
 
     <script>
         function startPage() {
@@ -109,6 +120,10 @@
                     passArray.push(userArray[Math.floor(Math.random()*userArray.length)]);
                 }
             //  Display the generated password on the screen
+                //  Method for turning the elements of an array into a string obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+                let finishedPass = passArray.join(" ");
+                let passwordEl = document.getElementById("generatedPassword");
+                passwordEl.setAttribute("value",finishedPass);
             //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
 
             }
