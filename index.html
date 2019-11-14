@@ -8,72 +8,109 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-    <h1>stuff</h1>
-
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Choose Password Length
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-            <button class="dropdown-item" type="button" onclick="setLength(8)">8</button>
-            <button class="dropdown-item" type="button" onclick="setLength(9)">9</button>
-            <button class="dropdown-item" type="button" onclick="setLength(10)">10</button>
-            <button class="dropdown-item" type="button" onclick="setLength(11)">11</button>
-            <button class="dropdown-item" type="button" onclick="setLength(12)">12</button>
-            <button class="dropdown-item" type="button" onclick="setLength(13)">13</button>
-            <button class="dropdown-item" type="button" onclick="setLength(14)">14</button>
-            <button class="dropdown-item" type="button" onclick="setLength(15)">15</button>
-            <button class="dropdown-item" type="button" onclick="setLength(16)">16</button>
-        </div>
-    </div>
-
-    <form>
-        <div class="form-group row">
-            <label for="chosenLength" class="col-sm-2 col-form-label">Length</label>
-            <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="chosenLength" value="8">
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <div class="col-12 text-center">
+                <h1>Password Generator</h1>
             </div>
         </div>
-    </form>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="lowercaseCheck">
-        <label class="form-check-label" for="lowercaseCheck">
-            Lowercase Letters
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="uppercaseCheck">
-        <label class="form-check-label" for="uppercaseCheck">
-            Uppercase Letters
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="numberCheck">
-        <label class="form-check-label" for="numberCheck">
-            Numbers
-        </label>
-    </div>
-    <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="specialCheck">
-        <label class="form-check-label" for="specialCheck">
-            Special Characters
-        </label>
-    </div>
 
-    
-
-    <button type="button" class="btn btn-primary" onclick="genPass()">Generate Password</button>
-
-    <form>
-        <div class="form-group row">
-            <label for="generatedPassword" class="col-sm-2 col-form-label">Password</label>
-            <div class="col-sm-10">
-                <input type="text" readonly class="form-control-plaintext" id="generatedPassword" value="">
+        <div class="row mb-3">
+            <div class="col-0 col-md-2"></div>
+            <div class="col-12 col-md-3 text-center">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Choose Password Length
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button" onclick="setLength(8)">8</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(9)">9</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(10)">10</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(11)">11</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(12)">12</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(13)">13</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(14)">14</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(15)">15</button>
+                        <button class="dropdown-item" type="button" onclick="setLength(16)">16</button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
 
-    <button type="button" class="btn btn-primary" onclick="copyPass()">Click to Copy</button>
+            <div class="col-12 col-md-5 text-center">
+                <form>
+                    <div class="form-group row">
+                        <label for="chosenLength" class="col-8 col-form-label">Length</label>
+                        <div class="col-4">
+                            <input type="text" readonly class="form-control-plaintext" id="chosenLength" value="8">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-0 col md-2"></div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-3 col-sm-4"></div>
+            <div class="col-6 col-sm-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="lowercaseCheck">
+                    <label class="form-check-label" for="lowercaseCheck">
+                        Lowercase Letters
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="uppercaseCheck">
+                    <label class="form-check-label" for="uppercaseCheck">
+                        Uppercase Letters
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="numberCheck">
+                    <label class="form-check-label" for="numberCheck">
+                        Numbers
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="specialCheck">
+                    <label class="form-check-label" for="specialCheck">
+                        Special Characters
+                    </label>
+                </div>
+            </div>
+            <div class="col-3 col-sm-4"></div>
+        </div>
+        
+
+        <div class="row mb-3">
+            <div class="col-0"></div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-4 text-center">
+                        <button type="button" class="btn btn-primary" onclick="genPass()">Generate Password</button>
+                    </div>
+                    <div class="col-12 col-md-8 text-center">
+                        <form>
+                            <div class="form-group row">
+                                <label for="generatedPassword" class="col-2 col-form-label">Password</label>
+                                <div class="col-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="generatedPassword" value="">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>    
+            <div class="col-0"></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <button type="button" class="btn btn-primary" onclick="copyPass()">Click to Copy</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
+
+    </div>
 
     <script>
         function startPage() {
@@ -101,32 +138,53 @@
                 let numberChecked = document.getElementById("numberCheck").checked;
                 let specialChecked = document.getElementById("specialCheck").checked;
 
+                //  Initialize an empty password array
+                let passArray = [];
+                let initialIndex = 0;
+                //  This code will force a member of the desired source array into passArray, then merge the source array with userArray to generate the full array of characters from which the rest of the password will be constructed.
                 //  Method to concatenate arrays obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
 
                 if (lowercaseChecked) {
                     userArray = userArray.concat(lowerLetters);
+                    passArray.push(lowerLetters[Math.floor(Math.random()*26)]);
+                    initialIndex++;
                 }
                 if (uppercaseChecked) {
                     userArray = userArray.concat(upperLetters);
+                    passArray.push(upperLetters[Math.floor(Math.random()*26)]);
+                    initialIndex++;
                 }
                 if (numberChecked) {
                     userArray = userArray.concat(numbers);
+                    passArray.push(numbers[Math.floor(Math.random()*10)]);
+                    initialIndex++;
                 }
                 if (specialChecked) {
                     userArray = userArray.concat(specialChars);
+                    passArray.push(specialChars[Math.floor(Math.random()*10)]);
+                    initialIndex++;
                 }
-                //  Initialize an empty password array
-                let passArray = [];
+
+                
             
             //  For each character required for the password, randomly select an element from userArray and add it to the end of passArray
-                for (i=0; i<passLength; i++) {
+                for (let i=initialIndex; i<passLength; i++) {
                     passArray.push(userArray[Math.floor(Math.random()*userArray.length)]);
                 }
+                console.log(passArray);
+                //  Since we first added elements of each source array individually, we next want to shuffle the array to randomize the order of the elements.  Strategy for achieving this obtained from https://www.frankmitchell.org/2015/01/fisher-yates/
+                shuffleArray(passArray);
+                console.log(passArray);
             //  Display the generated password on the screen
                 //  Method for turning the elements of an array into a string obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
                 let finishedPass = passArray.join("");
                 let passwordEl = document.getElementById("generatedPassword");
                 passwordEl.setAttribute("value",finishedPass);
+                // Use of or statement (||) obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Logical_Operators
+                let anyTypeChosen = lowercaseChecked || uppercaseChecked || numberChecked || specialChecked;
+                if (anyTypeChosen === false) {
+                    passwordEl.setAttribute("value","You need to select at least one character type!");
+                }
             }
             //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
                 //  Method for selecting contents of an input element obtained from https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
@@ -135,6 +193,15 @@
                 let passwordEl = document.getElementById("generatedPassword");
                 passwordEl.select();
                 document.execCommand("copy");
+            }
+
+            function shuffleArray(array) {
+                for (let i=0; i<array.length; i++) {
+                    let j=Math.floor(Math.random()*(i+1));
+                    let temp = array[i];
+                    array[i]=array[j];
+                    array[j]=temp;
+                }
             }
             
 
