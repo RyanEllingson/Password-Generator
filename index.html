@@ -102,8 +102,12 @@
                     userArray = userArray.concat(specialChars);
                 }
 
-            //  Initialize a password array whose length is equal to the number of characters requested by the user for their password
-            //  Loop through each element of the password array and assign to it an element randomly chosen from the user array
+            //  Initialize an empty password array
+                let passArray = [];
+            //  For each character required for the password, randomly select an element from userArray and add it to the end of passArray
+                for (i=0; i<passLength; i++) {
+                    passArray.push(userArray[Math.floor(Math.random()*userArray.length)]);
+                }
             //  Display the generated password on the screen
             //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
 
