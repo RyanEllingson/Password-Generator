@@ -33,10 +33,34 @@
                 </div>
             </div>
         </form>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="lowercaseCheck">
+            <label class="form-check-label" for="lowercaseCheck">
+                Lowercase Letters
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="uppercaseCheck">
+            <label class="form-check-label" for="uppercaseCheck">
+                Uppercase Letters
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="numberCheck">
+            <label class="form-check-label" for="numberCheck">
+                Numbers
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="specialCheck">
+            <label class="form-check-label" for="specialCheck">
+                Special Characters
+            </label>
+        </div>
 
     </div>
 
-    <button type="button" class="btn btn-primary" onclick="genPass()">Primary</button>
+    <button type="button" class="btn btn-primary" onclick="genPass()">Generate Password</button>
 
     <script>
         function startPage() {
@@ -58,6 +82,26 @@
             //  Initialize an empty user array
                 let userArray = [];
             //  Look at what options the user has selected for their password, and add the contents of the corresponding source arrays to the user array.  This array contains the set of characters which will be randomly chosen to build the password
+                let lowercaseChecked = document.getElementById("lowercaseCheck").checked;
+                let uppercaseChecked = document.getElementById("uppercaseCheck").checked;
+                let numberChecked = document.getElementById("numberCheck").checked;
+                let specialChecked = document.getElementById("specialCheck").checked;
+
+                //  Method to concatenate arrays obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
+
+                if (lowercaseChecked) {
+                    userArray = userArray.concat(lowerLetters);
+                }
+                if (uppercaseChecked) {
+                    userArray = userArray.concat(upperLetters);
+                }
+                if (numberChecked) {
+                    userArray = userArray.concat(numbers);
+                }
+                if (specialChecked) {
+                    userArray = userArray.concat(specialChars);
+                }
+
             //  Initialize a password array whose length is equal to the number of characters requested by the user for their password
             //  Loop through each element of the password array and assign to it an element randomly chosen from the user array
             //  Display the generated password on the screen
