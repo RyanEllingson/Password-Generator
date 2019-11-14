@@ -171,10 +171,10 @@
                 for (let i=initialIndex; i<passLength; i++) {
                     passArray.push(userArray[Math.floor(Math.random()*userArray.length)]);
                 }
-                console.log(passArray);
+                
                 //  Since we first added elements of each source array individually, we next want to shuffle the array to randomize the order of the elements.  Strategy for achieving this obtained from https://www.frankmitchell.org/2015/01/fisher-yates/
                 shuffleArray(passArray);
-                console.log(passArray);
+                
             //  Display the generated password on the screen
                 //  Method for turning the elements of an array into a string obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
                 let finishedPass = passArray.join("");
