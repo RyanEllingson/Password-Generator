@@ -73,6 +73,8 @@
         </div>
     </form>
 
+    <button type="button" class="btn btn-primary" onclick="copyPass()">Click to Copy</button>
+
     <script>
         function startPage() {
             //  Initialize source arrays of characters containing lowercase letters, uppercase letters, numbers, and special characters
@@ -80,6 +82,7 @@
             const upperLetters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
             const numbers = ["0","1","2","3","4","5","6","7","8","9"];
             const specialChars = ["!","@","#","$","%","^","&","*","(",")"];
+            
             //  Initialize password length variable passLength
             let passLength = 8;
             //  When a password length is selected, write the corresponding number to passLength and display the selected number on the screen
@@ -112,23 +115,32 @@
                 if (specialChecked) {
                     userArray = userArray.concat(specialChars);
                 }
-
-            //  Initialize an empty password array
+                //  Initialize an empty password array
                 let passArray = [];
+            
             //  For each character required for the password, randomly select an element from userArray and add it to the end of passArray
                 for (i=0; i<passLength; i++) {
                     passArray.push(userArray[Math.floor(Math.random()*userArray.length)]);
                 }
             //  Display the generated password on the screen
                 //  Method for turning the elements of an array into a string obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
-                let finishedPass = passArray.join(" ");
+                let finishedPass = passArray.join("");
                 let passwordEl = document.getElementById("generatedPassword");
                 passwordEl.setAttribute("value",finishedPass);
-            //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
-
             }
+            //  When "Copy to Clipboard" button is clicked, copy the password to the clipboard
+                //  Method for selecting contents of an input element obtained from https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+                //  Method for copying selected text to clipboard obtained from https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Interact_with_the_clipboard
+            function copyPass() {
+                let passwordEl = document.getElementById("generatedPassword");
+                passwordEl.select();
+                document.execCommand("copy");
+            }
+            
+
             window.setLength = setLength;
             window.genPass = genPass;
+            window.copyPass = copyPass;
         }
         startPage();
     </script>
